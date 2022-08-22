@@ -2,6 +2,18 @@ import express from 'express'
 import attentionPlacesRouter from './routes/attentionPlaces.route'
 import areaRouter from './routes/area.routes'
 import subjectMatterRoute from './routes/subjectMatter.route'
+import originRoute from './routes/origin.route'
+import capacityRoute from './routes/capacity.route'
+import legalOfficerOptionRoute from './routes/legalOfficerOption.route'
+import attentionResultRoute from './routes/attentionResult.route'
+import efficacyOptionRoute from './routes/efficacyOption.route'
+import audienceResultRoute from './routes/audienceResult.route'
+import caseStatusRoute from './routes/caseStatus.route'
+import graphicSupportOptionRoute from './routes/graphicSupportOption.route'
+import idTypeRoute from './routes/idType.route'
+import FileTypeRoute from './routes/fileType.route'
+import PersonRoute from './routes/person.route'
+
 import { initModels, sequelize } from './database'
 
 const app = express()
@@ -12,6 +24,17 @@ const PORT = 8000
 app.use('/api/attention-places', attentionPlacesRouter)
 app.use('/api/areas', areaRouter)
 app.use('/api/subject-matters', subjectMatterRoute)
+app.use('/api/origins', originRoute)
+app.use('/api/capacities', capacityRoute)
+app.use('/api/legal-officer-options', legalOfficerOptionRoute)
+app.use('/api/attention-results', attentionResultRoute)
+app.use('/api/efficacy-options', efficacyOptionRoute)
+app.use('/api/case-statuses', caseStatusRoute)
+app.use('/api/audience-results', audienceResultRoute)
+app.use('/api/case-statuses', graphicSupportOptionRoute)
+app.use('/api/id-types', idTypeRoute)
+app.use('/api/file-types', FileTypeRoute)
+app.use('/api/people', PersonRoute)
 
 app.get('/ping', (_req, res) => {
   console.log(`someone pinged here!! ${new Date().toLocaleDateString}`)
