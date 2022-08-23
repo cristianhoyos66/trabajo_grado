@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request } from 'express'
 import attentionPlacesRouter from './routes/attentionPlaces.route'
 import areaRouter from './routes/area.routes'
 import subjectMatterRoute from './routes/subjectMatter.route'
@@ -13,11 +13,13 @@ import graphicSupportOptionRoute from './routes/graphicSupportOption.route'
 import idTypeRoute from './routes/idType.route'
 import FileTypeRoute from './routes/fileType.route'
 import PersonRoute from './routes/person.route'
+import cors from 'cors'
 
 import { initModels, sequelize } from './database'
 
 const app = express()
 app.use(express.json())
+app.use(cors<Request>())
 
 const PORT = 8000
 
