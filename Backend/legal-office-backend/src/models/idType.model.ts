@@ -1,10 +1,8 @@
-import { Table, Model, Column, HasMany } from 'sequelize-typescript'
-import Person from './person.model'
+import { Table, Model, Column } from 'sequelize-typescript'
 
 export interface IdTypeAttr {
   id: bigint
   name: string
-  people: Person[]
   description: string
   createdAt: Date
   updatedAt: Date
@@ -18,9 +16,6 @@ export default class IdType extends Model implements IdTypeAttr {
 
   @Column
   declare name: string
-
-  @HasMany(() => Person)
-  declare people: Person[]
 
   @Column
   declare description: string

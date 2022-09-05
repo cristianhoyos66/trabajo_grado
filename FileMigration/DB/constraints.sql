@@ -99,6 +99,7 @@ alter table cases add constraint fk_student_recepcionist_capacity_id_cases_capac
 alter table cases add constraint fk_attention_place_id_cases_attention_places foreign key (attention_place_id) references attention_places (id);
 alter table cases add constraint fk_student_assignee_id_cases_people foreign key (student_assignee_id) references people (id);
 alter table cases add constraint fk_student_assignee_capacity_id_cases_capacities foreign key (student_assignee_capacity_id) references capacities (id);
+alter table cases add constraint fk_individual_participation_id_cases_legal_officer_options foreign key (individual_participation_id) references legal_officer_options (id);
 alter table cases add constraint fk_advisor_id_cases_people foreign key (advisor_id) references people (id);
 alter table cases add constraint fk_third_party_representation_id_cases_attention_results foreign key (third_party_representation_id) references attention_results (id);
 alter table cases add constraint fk_audience_result_id_cases_audience_results foreign key (audience_result_id) references audience_results (id);

@@ -13,13 +13,21 @@ import graphicSupportOptionRoute from './routes/graphicSupportOption.route'
 import idTypeRoute from './routes/idType.route'
 import FileTypeRoute from './routes/fileType.route'
 import PersonRoute from './routes/person.route'
+import FileRoute from './routes/file.route'
+import CaseRoute from './routes/case.route'
 import cors from 'cors'
+import bodyParser from 'body-parser'
+import fileUpload from 'express-fileupload'
 
 import { initModels, sequelize } from './database'
 
 const app = express()
 app.use(express.json())
 app.use(cors<Request>())
+app.use(express.static('public/files'))
+app.use(fileUpload())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const PORT = 8000
 
@@ -37,6 +45,8 @@ app.use('/api/graphic-support-options', graphicSupportOptionRoute)
 app.use('/api/id-types', idTypeRoute)
 app.use('/api/file-types', FileTypeRoute)
 app.use('/api/people', PersonRoute)
+app.use('/api/files', FileRoute)
+app.use('/api/cases', CaseRoute)
 
 app.get('/ping', (_req, res) => {
   console.log(`someone pinged here!! ${new Date().toLocaleDateString}`)

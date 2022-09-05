@@ -14,6 +14,7 @@ import GraphicSupportOption from './models/graphicSupportOptions.model'
 import IdType from './models/idType.model'
 import FileType from './models/fileType.model'
 import Person from './models/person.model'
+import Case from './models/case.model'
 
 dotenv.config()
 export const sequelize = new Sequelize({
@@ -38,6 +39,7 @@ export const initModels = (): void => {
     GraphicSupportOption,
     IdType,
     FileType,
-    Person
+    Person,
+    Case
   ])
 }

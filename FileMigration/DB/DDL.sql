@@ -146,6 +146,7 @@ create table if not exists graphic_support_options(
 
 create table if not exists cases(
     id bigint,
+    socioeconomic_level varchar(1),
     year varchar(255),
     internal_number varchar(255),
     attention_consultant_date date,
@@ -162,7 +163,7 @@ create table if not exists cases(
     student_assignee_id bigint,
     student_assignee_capacity_id bigint,
     appointment_date_by_user boolean,
-    individual_participation boolean,
+    individual_participation_id bigint,
     advisor_id bigint,
     third_party_representation_id bigint,
     audience_date_time datetime,
