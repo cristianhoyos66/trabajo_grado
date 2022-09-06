@@ -1,16 +1,4 @@
 import Case, { CaseAttr } from '../models/case.model'
-//
-/* import Area from '../models/area.model'
-import SubjectMatter from '../models/subjectMatters.model'
-import Origin from '../models/origin.model'
-import AttentionPlace from '../models/attentionPlace.model'
-import AttentionResult from '../models/attentionResult.model'
-import AudienceResult from '../models/audienceResult.model'
-import Capacity from '../models/capacity.model'
-
-import CaseStatus from '../models/caseStatus.model'
-import GraphicSupportOption from '../models/graphicSupportOptions.model'
-import LegalOfficerOption from '../models/legalOfficerOption.model' */
 
 export const getAll = async (): Promise<CaseAttr[]> => {
   const areas: CaseAttr[] = await Case.findAll({
@@ -27,4 +15,26 @@ export const getById = async (caseId: string): Promise<CaseAttr | null> => {
       all: true
     }
   })
+}
+
+export const createCase = async (newCase: any): Promise<CaseAttr> => {
+  return await Case.create(newCase)
+}
+
+export const deleteCase = async (areaId: string): Promise<number> => {
+  return await Case.destroy({
+    where: {
+      id: BigInt(areaId)
+    }
+  })
+}
+
+export const updateCase = async (idToUpdate: string, newCase: any): Promise<[affectedCount: number]> => {
+  return await Case.update(newCase,
+    {
+      where: {
+        id: BigInt(idToUpdate)
+      }
+    }
+  )
 }

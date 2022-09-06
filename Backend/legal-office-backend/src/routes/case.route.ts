@@ -26,4 +26,30 @@ router.get('/:caseId', asyncHandler(async (req, res, next): Promise<any> => {
   }
 }))
 
+router.post('/', asyncHandler(async (req, res, next) => {
+  try {
+    const response = await caseService.createCase(req.body)
+    res.status(201).send(response)
+  } catch (error) {
+    next(error)
+  }
+}))
+
+router.put('/:caseId', asyncHandler(async (req, res, next) => {
+  try {
+    res.send(await caseService.updateCase(req.params.caseId, req.body))
+  } catch (error) {
+    next(error)
+  }
+}))
+
+router.delete('/:caseId', asyncHandler(async (req, res, next) => {
+  try {
+    await caseService.deleteCase(req.params.caseId)
+    res.status(204).send()
+  } catch (error) {
+    next(error)
+  }
+}))
+
 export default router
