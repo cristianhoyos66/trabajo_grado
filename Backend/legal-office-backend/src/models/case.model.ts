@@ -1,4 +1,4 @@
-import { Table, Model, Column, ForeignKey, BelongsTo } from 'sequelize-typescript'
+import { Table, Model, Column, ForeignKey, BelongsTo, HasMany } from 'sequelize-typescript'
 import Person from './person.model'
 import Area from './area.model'
 import SubjectMatter from './subjectMatters.model'
@@ -10,6 +10,7 @@ import AudienceResult from './audienceResult.model'
 import CaseStatus from './caseStatus.model'
 import GraphicSupportOption from './graphicSupportOptions.model'
 import LegalOfficerOption from './legalOfficerOption.model'
+import File from './file.model'
 
 export interface CaseAttr {
   id: bigint
@@ -56,6 +57,7 @@ export interface CaseAttr {
   studentPeacefulCertificate: boolean
   graphicSupportId: bigint
   graphicSupport: GraphicSupportOption
+  files: File[]
 }
 
 @Table({
@@ -241,6 +243,9 @@ export default class Case extends Model implements CaseAttr {
 
   @BelongsTo(() => GraphicSupportOption)
   declare graphicSupport: GraphicSupportOption
+
+  @HasMany(() => File)
+  declare files: File[]
 
   @Column({ field: 'created_at' })
   declare createdAt: Date

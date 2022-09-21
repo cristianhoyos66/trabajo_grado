@@ -187,7 +187,7 @@ create table if not exists file_types(
 create table if not exists files(
     id bigint,
     url varchar(255) not null,
-    file_type_id bigint not null,
+    file_type_id bigint,
     case_id bigint not null,
     created_at timestamp default current_timestamp,
     updated_at timestamp default current_timestamp

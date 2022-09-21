@@ -1,12 +1,12 @@
 import Case, { CaseAttr } from '../models/case.model'
 
 export const getAll = async (): Promise<CaseAttr[]> => {
-  const areas: CaseAttr[] = await Case.findAll({
+  const cases: CaseAttr[] = await Case.findAll({
     include: {
       all: true
     }
   })
-  return areas
+  return cases
 }
 
 export const getById = async (caseId: string): Promise<CaseAttr | null> => {
@@ -21,10 +21,10 @@ export const createCase = async (newCase: any): Promise<CaseAttr> => {
   return await Case.create(newCase)
 }
 
-export const deleteCase = async (areaId: string): Promise<number> => {
+export const deleteCase = async (caseId: string): Promise<number> => {
   return await Case.destroy({
     where: {
-      id: BigInt(areaId)
+      id: BigInt(caseId)
     }
   })
 }

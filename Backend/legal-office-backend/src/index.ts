@@ -18,16 +18,17 @@ import CaseRoute from './routes/case.route'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import fileUpload from 'express-fileupload'
+import path from 'path'
 
 import { initModels, sequelize } from './database'
 
 const app = express()
 app.use(express.json())
 app.use(cors<Request>())
-app.use(express.static('public/files'))
 app.use(fileUpload())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, 'public')))
 
 const PORT = 8000
 

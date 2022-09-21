@@ -15,6 +15,7 @@ import IdType from './models/idType.model'
 import FileType from './models/fileType.model'
 import Person from './models/person.model'
 import Case from './models/case.model'
+import File from './models/file.model'
 
 dotenv.config()
 export const sequelize = new Sequelize({
@@ -40,6 +41,7 @@ export const initModels = (): void => {
     IdType,
     FileType,
     Person,
-    Case
+    Case,
+    File
   ])
 }
