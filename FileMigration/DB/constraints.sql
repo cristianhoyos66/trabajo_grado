@@ -63,6 +63,7 @@ alter table roles add constraint uk_name_roles unique (name);
 alter table users add constraint pk_users primary key (id);
 alter table users modify id bigint auto_increment;
 alter table users add constraint uk_username_users unique (username);
+alter table users add constraint uk_person_id_users unique (person_id);
 alter table users add constraint fk_person_id_users_people foreign key (person_id) references people (id);
 alter table users add constraint fk_role_id_users_roles foreign key (role_id) references roles (id);
 

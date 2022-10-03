@@ -1,15 +1,36 @@
 import IdType from '../models/idType.model'
 import Person, { PersonAttr } from '../models/person.model'
+import User from '../models/user.model'
 
 export const getAll = async (): Promise<PersonAttr[]> => {
   return await Person.findAll({
-    include: [{ model: IdType }]
+    include: [
+      {
+        model: IdType
+      },
+      {
+        model: User,
+        attributes: {
+          exclude: ['pwd']
+        }
+      }
+    ]
   })
 }
 
 export const getById = async (personId: string): Promise<PersonAttr | null> => {
   return await Person.findByPk(personId, {
-    include: [{ model: IdType }]
+    include: [
+      {
+        model: IdType
+      },
+      {
+        model: User,
+        attributes: {
+          exclude: ['pwd']
+        }
+      }
+    ]
   })
 }
 

@@ -1,5 +1,6 @@
-import { Table, Model, Column, Unique, ForeignKey, BelongsTo } from 'sequelize-typescript'
+import { Table, Model, Column, Unique, ForeignKey, BelongsTo, HasOne } from 'sequelize-typescript'
 import IdType from './idType.model'
+import User from './user.model'
 
 export interface PersonAttr {
   id: bigint
@@ -12,6 +13,7 @@ export interface PersonAttr {
   tel: string
   email: string
   birthdate: Date
+  user: User
   createdAt: Date
   updatedAt: Date
 }
@@ -47,6 +49,9 @@ export default class Person extends Model implements PersonAttr {
   @Unique
   @Column
   declare email: string
+
+  @HasOne(() => User)
+  declare user: User
 
   @Column
   declare birthdate: Date

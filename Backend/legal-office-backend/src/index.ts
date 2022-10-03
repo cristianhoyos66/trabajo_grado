@@ -15,8 +15,17 @@ import FileTypeRoute from './routes/fileType.route'
 import PersonRoute from './routes/person.route'
 import FileRoute from './routes/file.route'
 import CaseRoute from './routes/case.route'
+import advisorAssignedCasesRoute from './routes/advisorAssignedCases.route'
+import advisorStudentPeopleRoute from './routes/advisorStudentPeople.route'
+import receivedCasesRoute from './routes/receivedCases.route'
+import studentAssignedCasesRoute from './routes/studentAssignedCases.route'
+import studentPeopleRoute from './routes/studentPeople.route'
+import usersRoute from './routes/users.route'
+import loginRoute from './routes/login.route'
+
 import cors from 'cors'
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
 import fileUpload from 'express-fileupload'
 import path from 'path'
 
@@ -28,6 +37,7 @@ app.use(cors<Request>())
 app.use(fileUpload())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 const PORT = 8000
@@ -48,6 +58,13 @@ app.use('/api/file-types', FileTypeRoute)
 app.use('/api/people', PersonRoute)
 app.use('/api/files', FileRoute)
 app.use('/api/cases', CaseRoute)
+app.use('/api/received-cases', receivedCasesRoute)
+app.use('/api/advisor-assigned-cases', advisorAssignedCasesRoute)
+app.use('/api/student-assigned-cases', studentAssignedCasesRoute)
+app.use('/api/student-people', studentPeopleRoute)
+app.use('/api/advisor-student-people', advisorStudentPeopleRoute)
+app.use('/api/users', usersRoute)
+app.use('/api', loginRoute)
 
 app.get('/ping', (_req, res) => {
   console.log(`someone pinged here!! ${new Date().toLocaleDateString}`)
