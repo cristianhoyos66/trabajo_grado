@@ -5,6 +5,7 @@ import asyncHandler from 'express-async-handler'
 const router = express.Router()
 
 router.get('/', asyncHandler(async (_req, res, next): Promise<any> => {
+  console.log('blah blah', JSON.stringify(res.locals.permissions))
   try {
     const response = await attentionPlaceService.getAll()
     res.send(response)

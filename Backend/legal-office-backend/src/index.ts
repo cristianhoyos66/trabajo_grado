@@ -28,6 +28,7 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import fileUpload from 'express-fileupload'
 import path from 'path'
+import * as authMiddleware from './middlewares/auth.middleware'
 
 import { initModels, sequelize } from './database'
 
@@ -39,6 +40,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(authMiddleware.authValidation)
 
 const PORT = 8000
 

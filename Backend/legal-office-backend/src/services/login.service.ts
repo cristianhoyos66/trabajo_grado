@@ -8,10 +8,10 @@ import { LoginResponse } from '../types'
 dotenv.config()
 
 async function createTokens (infoForToken: Object): Promise<LoginResponse> {
-  const [accesToken, _accessTokenError] = await jwt.sign(infoForToken, String(process.env.access_token_secret), {
+  const [accesToken] = await jwt.sign(infoForToken, String(process.env.access_token_secret), {
     expiresIn: '10m'
   })
-  const [refreshToken, _refreshTokenError] = await jwt.sign(infoForToken, String(process.env.refresh_token_secret), {
+  const [refreshToken] = await jwt.sign(infoForToken, String(process.env.refresh_token_secret), {
     expiresIn: '30m'
   })
   return {

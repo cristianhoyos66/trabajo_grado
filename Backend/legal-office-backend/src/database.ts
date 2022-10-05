@@ -17,6 +17,9 @@ import Person from './models/person.model'
 import Case from './models/case.model'
 import File from './models/file.model'
 import User from './models/user.model'
+import Role from './models/role.model'
+import Permission from './models/permission.model'
+import PermissionRole from './models/permissionRole.model'
 
 dotenv.config()
 export const sequelize = new Sequelize({
@@ -44,6 +47,9 @@ export const initModels = (): void => {
     Person,
     Case,
     File,
-    User
+    User,
+    Role,
+    Permission,
+    PermissionRole
   ])
 }
