@@ -30,7 +30,7 @@ export const login = async (username: string, password: string): Promise<LoginRe
     if (!await bcrypt.compare(password, user.pwd)) {
       throw new InvalidCredentials('Invalid Credentials')
     } else {
-      return await createTokens({ userId: user.id })
+      return await createTokens({ userId: user.id, personId: user.personId })
     }
   } else {
     throw new InvalidCredentials('Invalid Credentials')
@@ -45,7 +45,7 @@ export const refresh = async (refreshToken: string): Promise<LoginResponse> => {
     if (err !== null) {
       throw new InvalidCredentials(err)
     } else {
-      return await createTokens({ userId: decoded.userId })
+      return await createTokens({ userId: decoded.userId, personId: decoded.personId })
     }
   }
 }

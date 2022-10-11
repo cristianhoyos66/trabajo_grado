@@ -20,6 +20,7 @@ import User from './models/user.model'
 import Role from './models/role.model'
 import Permission from './models/permission.model'
 import PermissionRole from './models/permissionRole.model'
+import * as userService from './services/user.service'
 
 dotenv.config()
 export const sequelize = new Sequelize({
@@ -52,4 +53,13 @@ export const initModels = (): void => {
     Permission,
     PermissionRole
   ])
+}
+
+export const createFirstUser = async (): Promise<void> => {
+  await userService.createUser({
+    username: 'admin',
+    pwd: 'admin',
+    roleId: 3,
+    personId: 1
+  })
 }

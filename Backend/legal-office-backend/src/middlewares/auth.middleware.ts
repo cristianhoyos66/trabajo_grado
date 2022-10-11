@@ -10,6 +10,7 @@ async function validateToken (req: any, res: any, next: any): Promise<void> {
       res.status(401).send('Invalid Credentials')
     } else {
       if (await checkPermissions(decoded.userId, req.method, req.path.replace('/api/', '')) === true) {
+        res.locals.personId = decoded.personId
         next()
       } else {
         res.status(403).send('User unauthorized to perform the action')

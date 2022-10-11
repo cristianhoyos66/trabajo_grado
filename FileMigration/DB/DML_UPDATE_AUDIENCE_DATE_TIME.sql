@@ -1,5 +1,5 @@
 -- cases (ONLY AFTER TO HAVE RUN node migrationFile.js)
--- source C:/Users/cristian.hoyosj/Documents/trabajo_grado/DB/DML_UPDATE_AUDIENCE_DATE_TIME.sql
+-- source C:/Users/cristian.hoyosj/Documents/trabajo_grado/FileMigration/DB/DML_UPDATE_AUDIENCE_DATE_TIME.sql
 
 UPDATE CASES SET AUDIENCE_DATE_TIME = '2021-05-31 8:00:00.000' WHERE ID = 51;
 UPDATE CASES SET AUDIENCE_DATE_TIME = '2021-05-18 11:50:00.000' WHERE ID = 72;

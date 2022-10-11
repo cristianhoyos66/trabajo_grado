@@ -30,11 +30,15 @@ import fileUpload from 'express-fileupload'
 import path from 'path'
 import * as authMiddleware from './middlewares/auth.middleware'
 
-import { initModels, sequelize } from './database'
+import { initModels, sequelize, createFirstUser } from './database'
+import advisorPeopleRoute from './routes/advisorPeople.route'
 
 const app = express()
 app.use(express.json())
-app.use(cors<Request>())
+app.use(cors<Request>({
+  credentials: true,
+  origin: 'http://localhost:3000'
+}))
 app.use(fileUpload())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -64,6 +68,7 @@ app.use('/api/received-cases', receivedCasesRoute)
 app.use('/api/advisor-assigned-cases', advisorAssignedCasesRoute)
 app.use('/api/student-assigned-cases', studentAssignedCasesRoute)
 app.use('/api/student-people', studentPeopleRoute)
+app.use('/api/advisor-people', advisorPeopleRoute)
 app.use('/api/advisor-student-people', advisorStudentPeopleRoute)
 app.use('/api/users', usersRoute)
 app.use('/api', loginRoute)
@@ -77,6 +82,7 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
   sequelize.authenticate().then(async () => {
     console.log('database connected')
+    await createFirstUser()
     /* try {
       await sequelize.sync({ force: true })
     } catch (error: any) {

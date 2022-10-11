@@ -158,6 +158,9 @@ insert into permissions (resource, action) values ('users', 'getAll'); --103
 -- URL and Menu 2
 insert into permissions (url, resource) values ('users', 'users'); --104
 
+-- Resource - Action 2
+insert into permissions (resource, action) values ('advisor-people', 'getAll'); --105
+
 -- permission_roles
 -- Permisos ESTUDIANTE
 -- URL and Menu
@@ -318,3 +321,4 @@ insert into permission_roles (role_id, permission_id) values (3, 101);
 insert into permission_roles (role_id, permission_id) values (3, 102);
 insert into permission_roles (role_id, permission_id) values (3, 103);
 insert into permission_roles (role_id, permission_id) values (3, 104);
+insert into permission_roles (role_id, permission_id) values (3, 105);

@@ -17,7 +17,7 @@ export const getAll = async (): Promise<PersonAttr[]> => {
       }
     ],
     where: {
-      '$user.role_id$': 1
+      '$user.role_id$': 2
     }
   })
 }
