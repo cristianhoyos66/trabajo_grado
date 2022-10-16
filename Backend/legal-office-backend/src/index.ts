@@ -22,6 +22,7 @@ import studentAssignedCasesRoute from './routes/studentAssignedCases.route'
 import studentPeopleRoute from './routes/studentPeople.route'
 import usersRoute from './routes/users.route'
 import loginRoute from './routes/login.route'
+import menuOptionsRoute from './routes/menuOptions.route'
 
 import cors from 'cors'
 import bodyParser from 'body-parser'
@@ -72,6 +73,7 @@ app.use('/api/advisor-people', advisorPeopleRoute)
 app.use('/api/advisor-student-people', advisorStudentPeopleRoute)
 app.use('/api/users', usersRoute)
 app.use('/api', loginRoute)
+app.use('/api/menu-options', menuOptionsRoute)
 
 app.get('/ping', (_req, res) => {
   console.log(`someone pinged here!! ${new Date().toLocaleDateString}`)
