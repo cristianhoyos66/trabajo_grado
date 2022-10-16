@@ -28,7 +28,7 @@ router.get('/:caseId', asyncHandler(async (req, res, next): Promise<any> => {
 
 router.post('/', asyncHandler(async (req, res, next) => {
   try {
-    const response = await caseService.createCase(req.body)
+    const response = await caseService.createCase(req.body, res.locals.personId)
     res.status(201).send(response)
   } catch (error) {
     next(error)

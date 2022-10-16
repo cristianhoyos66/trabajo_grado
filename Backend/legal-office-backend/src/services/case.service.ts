@@ -17,7 +17,8 @@ export const getById = async (caseId: string): Promise<CaseAttr | null> => {
   })
 }
 
-export const createCase = async (newCase: any): Promise<CaseAttr> => {
+export const createCase = async (newCase: any, personId: bigint): Promise<CaseAttr> => {
+  newCase.studentRecepcionistId = personId
   return await Case.create(newCase)
 }
 
