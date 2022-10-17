@@ -14,6 +14,8 @@ export interface PersonAttr {
   email: string
   birthdate: Date
   user: User
+  studentIdToShow: BigInt
+  studentToShow: Person
   createdAt: Date
   updatedAt: Date
 }
@@ -55,6 +57,13 @@ export default class Person extends Model implements PersonAttr {
 
   @Column
   declare birthdate: Date
+
+  @ForeignKey(() => Person)
+  @Column({ field: 'student_id_to_show' })
+  declare studentIdToShow: bigint
+
+  @BelongsTo(() => Person)
+  declare studentToShow: Person
 
   @Column({ field: 'created_at' })
   declare createdAt: Date

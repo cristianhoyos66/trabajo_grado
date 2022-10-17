@@ -25,6 +25,9 @@ export const getById = async (personId: string): Promise<PersonAttr | null> => {
         model: IdType
       },
       {
+        model: Person
+      },
+      {
         model: User,
         attributes: {
           exclude: ['pwd']
@@ -34,7 +37,8 @@ export const getById = async (personId: string): Promise<PersonAttr | null> => {
   })
 }
 
-export const createPerson = async (newPerson: any): Promise<PersonAttr> => {
+export const createPerson = async (newPerson: any, personId: bigint): Promise<PersonAttr> => {
+  newPerson.studentIdToShow = personId
   return await Person.create(newPerson)
 }
 

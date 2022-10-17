@@ -23,6 +23,7 @@ import studentPeopleRoute from './routes/studentPeople.route'
 import usersRoute from './routes/users.route'
 import loginRoute from './routes/login.route'
 import menuOptionsRoute from './routes/menuOptions.route'
+import peopleToStudentRoute from './routes/peopleToStudent.route'
 
 import cors from 'cors'
 import bodyParser from 'body-parser'
@@ -71,6 +72,7 @@ app.use('/api/student-assigned-cases', studentAssignedCasesRoute)
 app.use('/api/student-people', studentPeopleRoute)
 app.use('/api/advisor-people', advisorPeopleRoute)
 app.use('/api/advisor-student-people', advisorStudentPeopleRoute)
+app.use('/api/people-to-students', peopleToStudentRoute)
 app.use('/api/users', usersRoute)
 app.use('/api', loginRoute)
 app.use('/api/menu-options', menuOptionsRoute)

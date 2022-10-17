@@ -28,7 +28,7 @@ router.get('/:personId', asyncHandler(async (req, res, next): Promise<any> => {
 
 router.post('/', asyncHandler(async (req, res, next) => {
   try {
-    const response = await personService.createPerson(req.body)
+    const response = await personService.createPerson(req.body, res.locals.personId)
     res.status(201).send(response)
   } catch (error) {
     next(error)

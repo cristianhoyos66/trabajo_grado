@@ -90,6 +90,7 @@ create table if not exists people(
     tel varchar(255),
     email varchar(255),
     birthdate date,
+    student_id_to_show bigint,
     created_at timestamp default current_timestamp,
     updated_at timestamp default current_timestamp
 );
