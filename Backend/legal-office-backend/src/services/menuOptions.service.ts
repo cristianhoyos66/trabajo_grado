@@ -9,7 +9,7 @@ export const getAll = async (userId: bigint, url: any): Promise<PermissionRoleAt
     roleId: user?.roleId
   }
   if (url !== undefined) {
-    if (url.include('Ver_caso') === true || url.include('Ver_caso_ase_estu') === true) {
+    if (url.include('Ver_caso') === true || url.include('Casos_en_progreso') === true || url.include('Casos_asesoramiento') === true) {
       url = url.split('/')[0]
     }
     whereClause['$permission.url$'] = url

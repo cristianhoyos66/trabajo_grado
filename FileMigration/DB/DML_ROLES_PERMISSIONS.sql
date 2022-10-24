@@ -165,6 +165,9 @@ insert into permissions (resource, action) values ('people-to-students', 'getAll
 
 -- URL and Menu 3
 insert into permissions (url) values ('auth/login'); --108
+insert into permissions (url) values ('Casos_en_progreso'); --109 -- estudiante
+insert into permissions (url) values ('Casos_asesoramiento/login'); --110 -- asesor
+
 
 -- permission_roles
 -- Permisos ESTUDIANTE
@@ -175,6 +178,7 @@ insert into permission_roles (role_id, permission_id) values (1, 4);
 insert into permission_roles (role_id, permission_id) values (1, 12);
 insert into permission_roles (role_id, permission_id) values (1, 108);
 insert into permission_roles (role_id, permission_id) values (1, 9);
+insert into permission_roles (role_id, permission_id) values (1, 109);
 
 -- Resource-Action
 insert into permission_roles (role_id, permission_id) values (1, 89);
@@ -213,6 +217,7 @@ insert into permission_roles (role_id, permission_id) values (2, 5);
 insert into permission_roles (role_id, permission_id) values (2, 6); -- Students that have an assigned case with this advisor
 insert into permission_roles (role_id, permission_id) values (2, 12);
 insert into permission_roles (role_id, permission_id) values (2, 108);
+insert into permission_roles (role_id, permission_id) values (1, 110);
 
 -- Resource-Action
 insert into permission_roles (role_id, permission_id) values (2, 17);
