@@ -39,6 +39,7 @@ export const deleteCase = async (caseId: string): Promise<number> => {
 }
 
 export const updateCase = async (idToUpdate: string, newCase: any): Promise<[affectedCount: number]> => {
+  await changeStudentToShow(newCase.plaintiffId)
   return await Case.update(newCase,
     {
       where: {

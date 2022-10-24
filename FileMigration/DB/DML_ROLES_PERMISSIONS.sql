@@ -8,7 +8,7 @@ insert into roles (name) values ('ADMIN'); -- 3
 insert into permissions (url, resource) values ('Bienvenido', 'Bienvenido'); --1
 insert into permissions (url, resource) values ('Casos', 'Casos'); --2
 insert into permissions (url, resource) values ('Casos_Recepcionados', 'Casos Recepcionados'); --3
-insert into permissions (url, resource) values ('Casos_Asignados_Estudiante', 'Casos Asignados'); --4
+insert into permissions (url, resource) values ('Casos_Asignados', 'Casos Asignados'); --4 -- Estudiante
 insert into permissions (url, resource) values ('Casos_Asignados_Asesor', 'Casos Asignados'); --5
 insert into permissions (url, resource) values ('Estudiantes_Asesor', 'Estudiantes'); --6
 insert into permissions (url, resource) values ('Estudiantes', 'Estudiantes'); --7
@@ -163,6 +163,9 @@ insert into permissions (resource, action) values ('advisor-people', 'getAll'); 
 insert into permissions (resource, action) values ('menu-options', 'getAll'); --106
 insert into permissions (resource, action) values ('people-to-students', 'getAll'); --107
 
+-- URL and Menu 3
+insert into permissions (url) values ('auth/login'); --108
+
 -- permission_roles
 -- Permisos ESTUDIANTE
 -- URL and Menu
@@ -170,6 +173,8 @@ insert into permission_roles (role_id, permission_id) values (1, 1);
 insert into permission_roles (role_id, permission_id) values (1, 3);
 insert into permission_roles (role_id, permission_id) values (1, 4);
 insert into permission_roles (role_id, permission_id) values (1, 12);
+insert into permission_roles (role_id, permission_id) values (1, 108);
+insert into permission_roles (role_id, permission_id) values (1, 9);
 
 -- Resource-Action
 insert into permission_roles (role_id, permission_id) values (1, 89);
@@ -207,6 +212,7 @@ insert into permission_roles (role_id, permission_id) values (2, 1);
 insert into permission_roles (role_id, permission_id) values (2, 5);
 insert into permission_roles (role_id, permission_id) values (2, 6); -- Students that have an assigned case with this advisor
 insert into permission_roles (role_id, permission_id) values (2, 12);
+insert into permission_roles (role_id, permission_id) values (2, 108);
 
 -- Resource-Action
 insert into permission_roles (role_id, permission_id) values (2, 17);
@@ -240,6 +246,7 @@ insert into permission_roles (role_id, permission_id) values (3, 8);
 insert into permission_roles (role_id, permission_id) values (3, 9);
 insert into permission_roles (role_id, permission_id) values (3, 10);
 insert into permission_roles (role_id, permission_id) values (3, 11);
+insert into permission_roles (role_id, permission_id) values (3, 108);
 
 -- Resource-Action
 insert into permission_roles (role_id, permission_id) values (3, 13);
