@@ -3,15 +3,15 @@ import PermissionRole, { PermissionRoleAttr } from '../models/permissionRole.mod
 import * as userService from '../services/user.service'
 
 export const getAll = async (userId: bigint, url: any): Promise<PermissionRoleAttr[]> => {
-  if (url.include('Ver_caso') === true || url.include('Ver_caso_ase_estu') === true) {
-    url = url.split('/')[0]
-  }
   const user: any = await userService.getById(userId.toString())
   const whereClause: {'$permission.action$': any, roleId: bigint, '$permission.url$'?: string } = {
     '$permission.action$': null,
     roleId: user?.roleId
   }
   if (url !== undefined) {
+    if (url.include('Ver_caso') === true || url.include('Ver_caso_ase_estu') === true) {
+      url = url.split('/')[0]
+    }
     whereClause['$permission.url$'] = url
   }
   const permissionRoles: PermissionRoleAttr[] = await PermissionRole.findAll({
