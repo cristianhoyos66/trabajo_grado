@@ -234,6 +234,7 @@ insert into permission_roles (role_id, permission_id) values (2, 67);
 insert into permission_roles (role_id, permission_id) values (2, 72);
 insert into permission_roles (role_id, permission_id) values (2, 77);
 insert into permission_roles (role_id, permission_id) values (2, 81);
+insert into permission_roles (role_id, permission_id) values (2, 82);
 insert into permission_roles (role_id, permission_id) values (2, 83);
 insert into permission_roles (role_id, permission_id) values (2, 85);
 insert into permission_roles (role_id, permission_id) values (2, 90);
