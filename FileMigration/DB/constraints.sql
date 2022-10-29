@@ -53,7 +53,7 @@ alter table people add constraint pk_people primary key (id);
 alter table people modify id bigint auto_increment;
 alter table people add constraint uk_email_people unique (email);
 alter table people add constraint fk_type_id_people_id_types foreign key (type_id) references id_types (id);
-alter table people add constraint fk_student:to_show_id_people_id foreign key (student_id_to_show) references people (id);
+alter table people add constraint fk_student_to_show_id_people_id foreign key (student_id_to_show) references people (id);
 
 -- roles
 alter table roles add constraint pk_roles primary key (id);
