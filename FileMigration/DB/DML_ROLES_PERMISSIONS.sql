@@ -208,6 +208,7 @@ insert into permission_roles (role_id, permission_id) values (1, 78);
 insert into permission_roles (role_id, permission_id) values (1, 79);
 insert into permission_roles (role_id, permission_id) values (1, 80);
 insert into permission_roles (role_id, permission_id) values (1, 81);
+insert into permission_roles (role_id, permission_id) values (1, 91);
 
 
 -- Permisos ASESOR

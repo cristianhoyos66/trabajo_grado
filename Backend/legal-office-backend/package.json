@@ -11,7 +11,7 @@
     "linst": "ts-standard",
     "tsc": "tsc",
     "start": "node build/index.js",
-    "postinstall": "tsc",
+    "postinstall": "tsc && mv -i -v src/public build && rm -v -rf src",
     "deploy": "git push heroku master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
