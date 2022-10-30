@@ -27,6 +27,7 @@ export const sequelize = new Sequelize({
   username: process.env.db_username,
   password: process.env.db_password,
   database: process.env.database,
+  host: process.env.host,
   dialect: 'mariadb'
 })
 

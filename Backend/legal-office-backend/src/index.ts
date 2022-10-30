@@ -24,6 +24,7 @@ import usersRoute from './routes/users.route'
 import loginRoute from './routes/login.route'
 import menuOptionsRoute from './routes/menuOptions.route'
 import peopleToStudentRoute from './routes/peopleToStudent.route'
+import * as dotenv from 'dotenv'
 
 import cors from 'cors'
 import bodyParser from 'body-parser'
@@ -34,7 +35,7 @@ import * as authMiddleware from './middlewares/auth.middleware'
 
 import { initModels, sequelize, createFirstUser } from './database'
 import advisorPeopleRoute from './routes/advisorPeople.route'
-
+dotenv.config()
 const app = express()
 app.use(express.json())
 app.use(cors<Request>({
@@ -48,7 +49,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(authMiddleware.authValidation)
 
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 
 app.use('/api/attention-places', attentionPlacesRouter)
 app.use('/api/areas', areaRouter)
