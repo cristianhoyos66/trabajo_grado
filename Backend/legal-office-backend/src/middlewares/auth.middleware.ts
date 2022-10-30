@@ -18,7 +18,11 @@ async function validateToken (req: any, res: any, next: any): Promise<void> {
       }
     }
   } else {
-    res.status(401).send('Invalid Credentials')
+    if (req.method === 'GET' && req.path.includes('files') === true) {
+      next()
+    } else {
+      res.status(401).send('Invalid Credentials')
+    }
   }
 }
 
