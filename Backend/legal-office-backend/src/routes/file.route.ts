@@ -77,7 +77,7 @@ router.put('/:fileId', asyncHandler(async (req, res, next) => {
 
 router.delete('/:fileId', asyncHandler(async (req, res, next) => {
   try {
-    await fileService.deleteFile(req.params.fileId, req.query.fileName)
+    await fileService.deleteFile(req.params.fileId, req.query.url)
     res.status(204).send()
   } catch (error) {
     next(error)
