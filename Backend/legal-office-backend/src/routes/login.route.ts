@@ -13,8 +13,7 @@ router.post('/login', asyncHandler(async (req, res, next) => {
       httpOnly: true,
       sameSite: 'lax',
       maxAge: 1800000,
-      // path: '/api/refresh'
-      path: 'http://localhost:3000/api/refresh'
+      path: '/api/refresh'
     })
     res.send({ accessToken: response.accessToken })
   } catch (error) {
