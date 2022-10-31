@@ -41,7 +41,7 @@ app.use(express.json())
 app.use(cors<Request>({
   credentials: true,
   // origin: 'http://localhost:3000'
-  origin: 'https://seashell-app-coja7.ondigitalocean.app/'
+  origin: 'https://seashell-app-coja7.ondigitalocean.app'
 }))
 app.use(fileUpload())
 app.use(bodyParser.json())
