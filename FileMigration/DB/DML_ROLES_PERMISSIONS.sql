@@ -209,6 +209,7 @@ insert into permission_roles (role_id, permission_id) values (1, 79);
 insert into permission_roles (role_id, permission_id) values (1, 80);
 insert into permission_roles (role_id, permission_id) values (1, 81);
 insert into permission_roles (role_id, permission_id) values (1, 91);
+insert into permission_roles (role_id, permission_id) values (1, 88);
 
 
 -- Permisos ASESOR
@@ -243,6 +244,7 @@ insert into permission_roles (role_id, permission_id) values (2, 92);
 insert into permission_roles (role_id, permission_id) values (2, 95);
 insert into permission_roles (role_id, permission_id) values (2, 98);
 insert into permission_roles (role_id, permission_id) values (2, 106);
+insert into permission_roles (role_id, permission_id) values (2, 88);
 
 -- Permisos ADMIN
 -- URL and Menu
